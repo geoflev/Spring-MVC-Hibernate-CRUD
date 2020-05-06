@@ -13,7 +13,7 @@ public class AppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext container) throws ServletException {
 
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-                //mono auto allazei to AppConfig
+                //mono auto allazei,to AppConfig
                 //einai idio me tin proigoumeni askisi
 		ctx.register(AppConfig.class);
 		ctx.setServletContext(container);

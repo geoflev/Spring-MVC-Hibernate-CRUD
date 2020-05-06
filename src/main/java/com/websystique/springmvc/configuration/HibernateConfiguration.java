@@ -18,23 +18,28 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-//san toy AppConfig to Configuration
+//@Configuration indicates that this class contains one or more bean methods annotated 
+//with @Bean producing beans manageable
+//by spring container. In our case, this class represent hibernate configuration.
 @EnableTransactionManagement
 //elegxei kata poso auta poy ginontai apo back sti basi ginontai swsta
 //(kanei kai serializable)
+//enabling Spring’s annotation-driven transaction management capability.
 @ComponentScan({"com.websystique.springmvc.configuration"})
-//san toy AppConfig
+//@ComponentScan is equivalent to context:component-scan base-package="..." in xml,
+//providing with where to look for spring managed beans/classes.
 @PropertySource(value = {"classpath:application.properties"})
-//classpath = to path pou briskontai ta .class oxi ta .java
-//to application.properties einai sta other sources
-//kai exei basi,username,password
+/*@PropertySource is used to declare a set of properties(defined in a properties 
+file in application classpath) in Spring run-time Environment, providing flexibility
+to have different values in different application environments.*/
 public class HibernateConfiguration {
 
     @Autowired
     private Environment environment;
 
     @Bean
-    //tha brei ta stoixeia gia na syndethei sti basi sto dataSource()
+    //Method sessionFactory() is creating a LocalSessionFactoryBean, which 
+    //exactly mirrors the XML based configuration :
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
@@ -52,6 +57,9 @@ public class HibernateConfiguration {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         //DriverManagerDataSource mia class pou kanei connection
+        
+        //Interface representing the environment in which the current application is running.
+        //Models two key aspects of the application environment: profiles and properties.
         dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
         dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
