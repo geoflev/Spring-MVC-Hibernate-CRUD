@@ -2,15 +2,19 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+        <!-- groupId,artifactId,version einai ta 3 basika gia na doulepsei
+        h efarmogi -->
 	<modelVersion>4.0.0</modelVersion>
+        <!-- GROUPID einai to main package path-->
 	<groupId>com.websystique.springmvc</groupId>
 	<artifactId>SpringHibernateExample</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+        <!-- to version tis efarmogis mas -->
+	<version>1.0.1</version>
 	<name>SpringHibernateExample</name>
-
+        <!-- -->
 	<properties>
-		<springframework.version>4.3.18.RELEASE</springframework.version>
+		<springframework.version>4.3.27.RELEASE</springframework.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
                 <!-- allazw se 8.0.19 kai allazei kai sto dependencies automata mesw maven -->
 		<mysql.version>8.0.19</mysql.version>
