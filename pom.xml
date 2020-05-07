@@ -10,7 +10,7 @@
 	<name>SpringHibernateExample</name>
 
 	<properties>
-		<springframework.version>4.3.17.RELEASE</springframework.version>
+		<springframework.version>4.3.18.RELEASE</springframework.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
                 <!-- allazw se 8.0.19 kai allazei kai sto dependencies automata mesw maven -->
 		<mysql.version>8.0.19</mysql.version>
